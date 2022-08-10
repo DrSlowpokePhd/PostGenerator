@@ -1,0 +1,32 @@
+{
+  "name": "postgenerator",
+  "version": "1.0.0",
+  "description": "A fake social media post generator based on templates and named entity recognition.",
+  "exports": "./index.js",
+  "type": "module",
+  "engines": {"node": ">=14.16"},
+  "scripts":{ 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "compromise": "14.4.4",
+    "retext": "^8.1.0",
+    "retext-readability": "^7.2.0",
+    "retext-sentiment": "^6.0.1",
+    "unified": "^10.1.2"
+  },
+  "author": "Jamie Doherty",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "eslint": "^8.21.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.19",
+    "request": "^2.88.2"
+  }
+}
