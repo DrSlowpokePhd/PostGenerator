@@ -17,13 +17,18 @@ import nlp from 'compromise';
 // require lexicon object
 import Lexicon from './src/lexicon.js';
 
-// array of tags to be used in the detect and classify step of the program
-// the order of these tags is something to pay attention to, as it can change the
-// way the output is produced
-const tags = ["#Pronoun", "#Adverb", "#Person", "#Noun", "#Verb",];
+
 
 // initialize lexicon object
 const lexicon = new Lexicon();
+
+// array of tags to be used in the detect and classify step of the program
+// the order of these tags is something to pay attention to, as it can change the
+// way the output is produced
+let tags = Array.from(lexicon.pos); // ["#Pronoun", "#Adverb", "#Person", "#Noun", "#Verb"];
+for(let i = 0; i < tags.length; i++) {
+    tags[i] = '#' + tags[i];
+}
 
 // ingest command line arguments
 const args = [];
@@ -34,11 +39,12 @@ console.log(args.toString());
 // parse command line arguments
 // --help : display a help message and exit the program
 // --template <text> : take in a string to use as a template
+// --times : amount of times to run the template through PostGenerator
 
 args.forEach((arg) => {
     switch (arg) {
         case "--help":
-            console.log("usage: postgen --template <text>");
+            console.log("usage: postgen --template <text> --times <number>");
             // process.exit(1);
             break;
         case "--template":
@@ -48,10 +54,7 @@ args.forEach((arg) => {
             times = args.at(args.findIndex((val) => {return val === "--times";}) + 1);
             break;
         default:
-            // process.exit(1);
-            // console.log("usage: postgen --template <text>");
-            break;
-            
+            break; 
     }
 });
 
