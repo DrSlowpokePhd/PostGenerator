@@ -1,4 +1,4 @@
-import nlp from 'compromise'
+import nlp from 'compromise';
 
 // class to separate the entire compromise lexicon into separate parts of speech
 // this is to help categorize the lexicon for the purposes of this app
@@ -42,6 +42,6 @@ export default class Lexicon {
             });
         }
     }
-};
+}
 
 
