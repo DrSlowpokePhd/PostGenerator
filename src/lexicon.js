@@ -3,7 +3,7 @@ import nlp from 'compromise';
 // class to separate the entire compromise lexicon into separate parts of speech
 // this is to help categorize the lexicon for the purposes of this app
 
-export default class Lexicon {
+export class Lexicon {
     debug = false;
     constructor(debug) {
         // array of entire comprimise lexicon
@@ -35,12 +35,28 @@ export default class Lexicon {
         // debug behavior, print lengths of all map arrays
 
         if(this.debug) {
-            console.log('Lexicon Map() size: ' + this.lexicon.size);
-            console.log('');
+            console.log('Lexicon Map() size: ' + this.lexicon.size); 
             Array.from(this.pos).forEach(element => {
                 console.log(element + ' array size: ' + this.lexicon.get(element).length);
             });
         }
+    }
+
+    get(key) {
+        return this.lexicon.get(key);
+    }
+
+    randomWord(key) {
+        let keytag = key;
+        if (key[0] === '#') {
+            keytag = key.slice(1);
+        }
+        if (!this.pos.has(key)) {
+            return 0;
+        }
+        let arr = this.lexicon.get(keytag);
+        let length = arr.length;
+        return arr[Math.floor(Math.random() * length)];
     }
 }
 
