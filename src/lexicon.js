@@ -56,7 +56,8 @@ export class Lexicon {
         }
         let arr = this.lexicon.get(keytag);
         let length = arr.length;
-        return arr[Math.floor(Math.random() * length)];
+        let num = Math.floor(Math.random() * length);
+        return arr[num];
     }
 }
 

@@ -1,7 +1,7 @@
+import {describe, it} from 'mocha';
 import {Lexicon} from '../src/lexicon.js';
 import {expect} from 'chai';
 import {fitness} from '../src/fitness.js';
-import {Template} from '../src/template.js';
 describe('lexicon', function() {
     let test = new Lexicon();
     describe('initialize', function() {
@@ -40,21 +40,4 @@ describe('fitness', function() {
     });
 });
 
-describe('template', async function() {
-    let template = new Template("I saw #Person last night and #Pronoun was fantastic!");
-    await template.init();
-    describe('initialize', function() { 
-        it('creates a parse tree from a specified function', function() { 
-            expect(template.parse_tree).to.not.be.an('undefined');
-        });
-    });
-
-    describe('genText()', function() {
-        it('should return a string', function() {
-            let genned_text = template.genText();
-            console.log(genned_text);
-            expect(genned_text).to.be.a('string');
-        });
-    });
-});
 
