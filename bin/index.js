@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import {Lexicon} from './src/lexicon.js';
-import {Template} from './src/template.js';
+import {Lexicon} from '../src/lexicon.js';
+import {Template} from '../src/template.js';
 
 const lexicon = new Lexicon();
 
